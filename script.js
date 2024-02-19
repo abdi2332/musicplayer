@@ -4,7 +4,7 @@ const play=document.getElementById("play")
 const pause=document.getElementById("pause")
 const forward=document.getElementById("forward")
 const backward=document.getElementById("back")
-
+const progress=document.getElementById("progress")
 const allSongs = [
     {
       id: 0,
@@ -50,27 +50,52 @@ const allSongs = [
     }
   ];
 
+
+  player.onloadedmetadata= function(){
+    progress.max=player.duration
+    progress.value=player.currentTime
+  }
+
+
 allSongs.forEach((song, index) => {
   const li = document.createElement("li");
   li.textContent = `${song.title} - ${song.artist}`;
   play.addEventListener("click", () => {
     player.src = song.src;
     player.play();
+    player.currentTime=progress.value
   });
   pause.addEventListener("click", () => {
     player.src = song.src;
     player.pause();
+    player.currentTime=progress.value 
   });
 
-  forward.addEventListener("click", () => {
-    player.src = song.src.next;
-    player.pause();
-  });
 
-  backward.addEventListener("click", () => {
-    player.src = song.src;
-    player.pause();
-  });
+ let currentsongIndex=0;
+
+ forward.addEventListener("click", () => {
+  currentsongIndex=(currentsongIndex+1)%allSongs.length
+  player.src = allSongs[currentsongIndex].src;
+  player.play();
+});
+
+
+backward.addEventListener("click", () => {
+  currentsongIndex=(currentsongIndex-1)%allSongs.length
+  player.src = allSongs[currentsongIndex].src;
+  player.play();
+});
 
   playlist.appendChild(li);
 });
+
+if(player.play()){
+  setInterval(()=>{
+    progress.value=player.currentTime
+  },500)
+}
+progress.onchange=function(){
+  player.play()
+  player.currentTime=progress.value 
+}

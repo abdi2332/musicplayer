@@ -8,7 +8,7 @@ h1{
 .container{
     box-sizing: border-box;
     width: 350px;
-    height: 400px;
+    height: 430px;
    background-image: url(image/kaseta-muzyka-fon-retro\ \(2\).jpg);
    margin-left: auto;
    margin-right: auto;
@@ -20,15 +20,16 @@ h1{
     background-color: beige;
 }
 .icon{
-margin-left: 150px;
+margin-left: 120px;
 font-size: larger;
-width: 50px;
-height: 50px;
-border-radius: 15px;
+width: 100px;
+height: 70px;
+border-radius: 35px;
 box-shadow: 7px 7px;
-background-color: rgb(79, 78, 78);
+background-color: rgb(95, 73, 17);
 margin-top: 100px;
 margin-bottom: 10px;
+font-size: xx-large;
 }
 button{
     background-color: rgb(95, 73, 17);
@@ -65,9 +66,9 @@ i{
 }
 #playlist{
     color: white;
-    font-size: large;
+    font-size: medium;
     list-style: none; 
-    margin-bottom: 10px; 
+    margin-bottom: 20px; 
 }
 li{
     margin-bottom: 5px;
@@ -81,7 +82,7 @@ li{
     background-color: rgb(95, 73, 17);
     margin-left: 25px;
     margin-right: 25px;
-    margin-top: 5px;
+    margin-top: 0px;
     border-radius: 10px;
     box-shadow: 7px 7px;
 }
