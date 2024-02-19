@@ -61,18 +61,35 @@ button{
 }
 
 i{
+    
+    color: white;
     margin-left: auto;
     margin-right: auto;
 }
+li > i{
+   animation: rotate 3s linear infinite;
+    margin-left: 22px;
+
+}
+@keyframes rotate{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
 #playlist{
-    color: white;
+    color: rgb(60, 59, 57);
     font-size: medium;
     list-style: none; 
     margin-bottom: 20px; 
 }
 li{
+    padding-right: 5px;
     margin-bottom: 5px;
     margin-left: -8px;
+    cursor: pointer;
 }
 #music{
     display: flex;
@@ -93,9 +110,7 @@ li{
     margin-left: 25px;
     margin-bottom: 5px;
 }
-.hide{
-    display: none;
-}
-#pause{
-    
+.styling{
+    border: 1.5px solid white;
+    padding: 2px 4px 2px;
 }

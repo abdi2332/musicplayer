@@ -57,18 +57,40 @@ const allSongs = [
   }
 
 
-allSongs.forEach((song, index) => {
+allSongs.forEach((song) => {
   const li = document.createElement("li");
   li.textContent = `${song.title} - ${song.artist}`;
   play.addEventListener("click", () => {
     player.src = song.src;
     player.play();
     player.currentTime=progress.value
+    play.classList.add("styling")
+    pause.classList.remove("styling")
   });
+  li.textContent = `${song.title} - ${song.artist}`;
+  li.addEventListener("click", () => {
+    const fun = document.createElement("i");
+    fun.classList.add("fas", "fa-music");
+    li.appendChild(fun);
+
+    // Set player source and play
+    player.src = song.src;
+    player.play();
+    player.currentTime = progress.value;
+
+    // Add/remove styling class
+    play.classList.add("styling");
+    pause.classList.remove("styling");
+  });
+
+
   pause.addEventListener("click", () => {
     player.src = song.src;
     player.pause();
-    player.currentTime=progress.value 
+    player.currentTime=progress.value
+    play.classList.remove("styling") 
+    pause.classList.add("styling")
+  
   });
 
 
