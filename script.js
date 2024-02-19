@@ -1,5 +1,9 @@
 const player = document.getElementById("player");
 const playlist = document.getElementById("playlist");
+const play=document.getElementById("play")
+const pause=document.getElementById("pause")
+const forward=document.getElementById("forward")
+const backward=document.getElementById("back")
 
 const allSongs = [
     {
@@ -49,9 +53,24 @@ const allSongs = [
 allSongs.forEach((song, index) => {
   const li = document.createElement("li");
   li.textContent = `${song.title} - ${song.artist}`;
-  li.addEventListener("click", () => {
+  play.addEventListener("click", () => {
     player.src = song.src;
     player.play();
   });
+  pause.addEventListener("click", () => {
+    player.src = song.src;
+    player.pause();
+  });
+
+  forward.addEventListener("click", () => {
+    player.src = song.src.next;
+    player.pause();
+  });
+
+  backward.addEventListener("click", () => {
+    player.src = song.src;
+    player.pause();
+  });
+
   playlist.appendChild(li);
 });

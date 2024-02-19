@@ -37,6 +37,7 @@ button{
     border: none;
     padding-top: 5px;
     padding-bottom: 5px;
+    cursor: pointer;
 }
 #progress{
    -webkit-appearance: none;
@@ -90,4 +91,10 @@ li{
     background-color: rgb(95, 73, 17);
     margin-left: 25px;
     margin-bottom: 5px;
+}
+.hide{
+    display: none;
+}
+#pause{
+    
 }
