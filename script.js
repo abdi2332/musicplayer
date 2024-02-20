@@ -56,6 +56,8 @@ const allSongs = [
     progress.value=player.currentTime
   }
 
+  let currentIcon=null;
+
 
 allSongs.forEach((song) => {
   const li = document.createElement("li");
@@ -69,6 +71,11 @@ allSongs.forEach((song) => {
   });
   li.textContent = `${song.title} - ${song.artist}`;
   li.addEventListener("click", () => {
+
+    if(currentIcon){
+      currentIcon.remove()
+      currentIcon=null
+    }
     const fun = document.createElement("i");
     fun.classList.add("fas", "fa-music");
     li.appendChild(fun);
@@ -81,6 +88,8 @@ allSongs.forEach((song) => {
     // Add/remove styling class
     play.classList.add("styling");
     pause.classList.remove("styling");
+
+    currentIcon=fun;
   });
 
 
@@ -90,7 +99,8 @@ allSongs.forEach((song) => {
     player.currentTime=progress.value
     play.classList.remove("styling") 
     pause.classList.add("styling")
-  
+    currentIcon.remove()
+    currentIcon=null
   });
 
 
